@@ -11,4 +11,4 @@ outputs:
   - name: artifacts
 
 run:
-  path: chmod +x source-code/tasks/maven-build.sh && source-code/tasks/maven-build.sh
+  path: tree -d source-code
