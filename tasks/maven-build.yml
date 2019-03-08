@@ -11,5 +11,4 @@ outputs:
   - name: artifacts
 
 run:
-  path: ls
-  args: [source-code/tasks]
+  path: source-code/tasks/maven-build.sh
