@@ -11,5 +11,5 @@ outputs:
   - name: artifacts
 
 run:
-  path: tree
-  args: [-d source-code]
+  path: ls
+  args: [source-code]
