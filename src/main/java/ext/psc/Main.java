@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         String basePath = "E:/kab";
-        String backupPath = "E:/kab2";
+        String backupPath = "E:/kab3";
         FileLoader loader = new FolderBasedLoader(".*?RDY$", new File(basePath));
         List<DataPack> datas = loader.getMatchingEntries();
         List<DataPack> allDatas = loader.getAllEntries();
