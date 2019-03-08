@@ -12,4 +12,4 @@ outputs:
 
 run:
   path: ls
-  args: [source-code]
+  args: [source-code/tasks]
