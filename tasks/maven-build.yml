@@ -10,8 +10,5 @@ inputs:
 outputs:
   - name: artifacts
 
-caches:
-  - path: maven
-
 run:
-  path: source-code/tasks/maven-build.sh
+  path: chmod +x source-code/tasks/maven-build.sh && source-code/tasks/maven-build.sh
