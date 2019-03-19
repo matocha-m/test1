@@ -11,4 +11,4 @@ outputs:
   - name: artifacts
 
 run:
-  path: source-code/tasks/maven-build.sh
+  path: cicd/tasks/maven-build.sh

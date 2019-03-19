@@ -4,7 +4,7 @@ cd source-code
 
 mvn clean install
 
-NAME=`ls target/*.jar | cut -d '/' -f 2 | rev | cut -c 5- | rev`-`date +%s%N`
+NAME=`ls target/*.jar | cut -d '/' -f 2 | rev | cut -c 5-`
 
 mv target/*.jar ../artifacts/
 tar cvf $NAME.tar -C ../artifacts/ .
