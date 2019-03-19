@@ -4,8 +4,6 @@ cd source-code/modules/SampleModule
 ls -la
 mvn clean install
 
-NAME=`ls target/*.jar | cut -d '/' -f 2 | rev | cut -c 5-`
+NAME=`ls target/*.jar | cut -d '/' -f 2 | tail -n 1`
 
-mv target/*.jar ../../../artifacts/
-tar cvf $NAME.tar -C ../../../artifacts/ .
-mv $NAME.tar ../../../artifacts/
+mv target/$NAME ../../../artifacts/app.jar
