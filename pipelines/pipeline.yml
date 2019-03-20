@@ -19,6 +19,9 @@ resources:
     username: ((registery-username))
     password: ((registery-password))
     repository: mmtestregistery.azurecr.io:443/samplemodule
+- name: trigger
+  type: time
+
 
 jobs:
 - name: build-project2
@@ -38,12 +41,19 @@ jobs:
       dockerfile: source-code/modules/((module-name))/Dockerfile.start.amd64
       tag: source-code/tag.txt
       tag_prefix: v
+  - put: trigger
+- name: deploy
+  public: true
+  plan:
+  - get: trigger
+    trigger: true
+    passed: [build-project2]
   - task: deploy
     file: scripts-source/tasks/deploy_solution.yml
     params:
       DEVICE_ID: ((device-id))
       USERNAME: ((az-username))
       PASSWORD: ((az-password))
-      
+
 
   
