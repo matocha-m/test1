@@ -44,5 +44,6 @@ jobs:
       DEVICE_ID: ((device-id))
       USERNAME: ((az-username))
       PASSWORD: ((az-password))
+      
 
   
