@@ -1,0 +1,41 @@
+---
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/matocha-m/iot-edge-test.git
+    branch: master
+    private_key: ((git.private_key))
+- name: scripts-source
+  type: git
+  source:
+    uri: https://github.com/matocha-m/test1.git
+    branch: master
+    private_key: ((git.private_key))
+
+- name: registery
+  type: docker-image
+  source:
+    username: ((registery-username))
+    password: ((registery-password))
+    repository: mmtestregistery.azurecr.io:443/samplemodule
+
+jobs:
+- name: build-project2
+  public: true
+  plan:
+  - get: source-code
+    trigger: true
+  - get: scripts-source
+  - task: maven-build
+    file: scripts-source/tasks/maven-build.yml
+    params:
+      APPNAME: test-iot
+  - put: registery
+    params:
+      build: artifacts/
+      dockerfile: source-code/modules/SampleModule/Dockerfile.start.amd64
+      tag: source-code/tag.txt
+      tag_prefix: v
+
+  
