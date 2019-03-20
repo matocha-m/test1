@@ -48,6 +48,8 @@ jobs:
   - get: trigger
     trigger: true
     passed: [build-project2]
+  - get: scripts-source
+  - get: source-code
   - task: deploy
     file: scripts-source/tasks/deploy_solution.yml
     params:
