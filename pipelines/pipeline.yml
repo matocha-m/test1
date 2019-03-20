@@ -38,5 +38,11 @@ jobs:
       dockerfile: source-code/modules/((module-name))/Dockerfile.start.amd64
       tag: source-code/tag.txt
       tag_prefix: v
+  - task: deploy
+    file: scripts-source/tasks/deploy_solution.yml
+    params:
+      DEVICE_ID: ((device-id))
+      USERNAME: ((az-username))
+      PASSWORD: ((az-password))
 
   
