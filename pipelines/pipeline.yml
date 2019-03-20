@@ -31,10 +31,11 @@ jobs:
     file: scripts-source/tasks/maven-build.yml
     params:
       APPNAME: test-iot
+      MODULE_NAME: ((module-name))
   - put: registery
     params:
       build: artifacts/
-      dockerfile: source-code/modules/SampleModule/Dockerfile.start.amd64
+      dockerfile: source-code/modules/((module-name))/Dockerfile.start.amd64
       tag: source-code/tag.txt
       tag_prefix: v
 
