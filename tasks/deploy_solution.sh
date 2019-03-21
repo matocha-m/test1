@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 az login --service-principal -u $USERNAME -p $PASSWORD --tenant $AZ_AD
 az extension add --name azure-cli-iot-ext
