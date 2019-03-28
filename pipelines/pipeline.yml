@@ -13,12 +13,6 @@ resources:
     branch: master
     private_key: ((git.private_key))
 
-- name: registery
-  type: docker-image
-  source:
-    username: ((registery-username))
-    password: ((registery-password))
-    repository: mmtestregistery.azurecr.io:443/samplemodule
 - name: trigger
   type: time
 
@@ -35,13 +29,14 @@ jobs:
     params:
       APPNAME: test-iot
       MODULE_NAME: ((module-name))
-  - put: registery
+  - task: push-image
+    file: scripts-source/tasks/push-image.yml
     params:
-      build: artifacts/
-      dockerfile: source-code/modules/((module-name))/Dockerfile.start.amd64
-      tag: source-code/tag.txt
-      tag_prefix: v
+      MODULE_NAME: ((module-name))
+      CONTAINER_REGISTRY_USERNAME_cconregistry: ((registery-username))
+      CONTAINER_REGISTRY_PASSWORD_cconregistry: ((registery-password))
   - put: trigger
+  
 - name: deploy
   public: true
   plan:
