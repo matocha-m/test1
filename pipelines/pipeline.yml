@@ -30,6 +30,7 @@ jobs:
       APPNAME: test-iot
       MODULE_NAME: ((module-name))
   - task: push-image
+    privileged: true
     file: scripts-source/tasks/push-image.yml
     params:
       MODULE_NAME: ((module-name))
