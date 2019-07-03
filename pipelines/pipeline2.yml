@@ -17,9 +17,9 @@ jobs:
     file: source-code/tasks/cf-deploy.yml
     params:
       environment_variables:
-        SPRING_PROFILES_ACTIVE: ((dev-env))
-        SPRING_CLOUD_CONFIG_USERNAME: ((configserver-username))
-        SPRING_CLOUD_CONFIG_PASSWORD: ((configserver-password))
+        SPRING_PROFILES_ACTIVE: dev-env
+        SPRING_CLOUD_CONFIG_USERNAME: configserver-username
+        SPRING_CLOUD_CONFIG_PASSWORD: configserver-password
         JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 1.8.+ }}'
 
   
