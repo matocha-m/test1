@@ -1,0 +1,25 @@
+---
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/matocha-m/test1.git
+    branch: master
+    private_key: ((git.private_key))
+
+jobs:
+- name: test
+  public: true
+  plan:
+  - get: source-code
+    trigger: true
+  - task: cf-deploy
+    file: source-code/tasks/cf-deploy.yml
+    params:
+      environment_variables:
+        SPRING_PROFILES_ACTIVE: ((dev-env))
+        SPRING_CLOUD_CONFIG_USERNAME: ((configserver-username))
+        SPRING_CLOUD_CONFIG_PASSWORD: ((configserver-password))
+        JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 1.8.+ }}'
+
+  
