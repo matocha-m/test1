@@ -4,6 +4,8 @@ image_resource:
   type: docker-image
   source:
     repository: cconregistry.azurecr.io/e3_odp2021_cf_build
+    username: ac76190a-73f7-4805-b7eb-c603e7380762
+    password: b0dbf318-c8a7-4938-aad0-6dacbe46db3a
 inputs:
 - name: source-code
 run:
