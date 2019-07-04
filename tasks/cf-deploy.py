@@ -28,3 +28,5 @@ with open('./manifest-output.yml', 'w') as stream:
         yaml.dump(manifest, stream)
     except yaml.YAMLError as exc:
         print(exc)
+
+os.system('cat ./manifest-output.yml')
