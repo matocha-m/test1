@@ -1,0 +1,9 @@
+---
+applications:
+- name: {APPNAME}
+  routes:
+  - route: {ROUTE}
+  memory: 1024MB
+  path: target/prod-vehicle-cc-gateway-*.jar
+  services:
+  - odp-rabbit

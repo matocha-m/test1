@@ -16,6 +16,7 @@ jobs:
   - task: cf-deploy
     file: source-code/tasks/cf-deploy.yml
     params:
+      MANIFEST_FILE: source-code/manifest.yml
       environment_variables:
         SPRING_PROFILES_ACTIVE: dev-env
         SPRING_CLOUD_CONFIG_USERNAME: configserver-username
