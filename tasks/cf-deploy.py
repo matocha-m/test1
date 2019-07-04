@@ -9,7 +9,8 @@ print(env_variables)
 
 
 d = json.loads(env_variables)
-print (d['SPRING_CLOUD_CONFIG_USERNAME'])
+for key in d:
+    print("key: {}, value: {}".format(key, d[key]))
 
 # with open("example.yaml", 'r') as stream:
 #     try:
