@@ -11,7 +11,7 @@ print(env_variables)
 d = json.loads(env_variables)
 for key in d:
     print("key: {}, value: {}".format(key, d[key]))
-path = os.environ['PATH']
+path = os.environ['CF_PATH']
 manifest = ''
 with open(os.environ['MANIFEST_FILE'], 'r') as stream:
     try:
