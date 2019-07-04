@@ -1,6 +1,6 @@
 #!/usr/local/bin/python
 
-# import yaml
+import yaml
 import os
 import json
 
@@ -12,8 +12,8 @@ d = json.loads(env_variables)
 for key in d:
     print("key: {}, value: {}".format(key, d[key]))
 
-# with open("example.yaml", 'r') as stream:
-#     try:
-#         print(yaml.safe_load(stream))
-#     except yaml.YAMLError as exc:
-#         print(exc)
+with open(os.environ['MANIFEST_FILE'], 'r') as stream:
+    try:
+        print(yaml.safe_load(stream))
+    except yaml.YAMLError as exc:
+        print(exc)
