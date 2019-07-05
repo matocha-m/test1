@@ -33,5 +33,6 @@ with open('./manifest-output.yml', 'w') as stream:
 
 subprocess.run(['cat' , './manifest-output.yml'], check=True)
 
+print(path)
 files = glob.glob(path)
 print(files)
