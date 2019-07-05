@@ -3,6 +3,7 @@
 import yaml
 import os
 import json
+import subprocess
 
 env_variables = os.environ['environment_variables']
 print(env_variables)
@@ -29,4 +30,5 @@ with open('./manifest-output.yml', 'w') as stream:
     except yaml.YAMLError as exc:
         print(exc)
 
-os.system('cat ./manifest-output.yml')
+subprocess.run(['cat' , './manifest-output.yml'])
+subprocess.run(['cat' , './manifest-output2.yml'])
