@@ -30,5 +30,5 @@ with open('./manifest-output.yml', 'w') as stream:
     except yaml.YAMLError as exc:
         print(exc)
 
-subprocess.run(['cat' , './manifest-output.yml'])
-subprocess.run(['cat' , './manifest-output2.yml'])
+subprocess.run(['cat' , './manifest-output.yml'], check=True)
+subprocess.run(['cat' , './manifest-output2.yml'], check=True)
