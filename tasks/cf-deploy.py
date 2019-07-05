@@ -4,6 +4,7 @@ import yaml
 import os
 import json
 import subprocess
+import glob
 
 env_variables = os.environ['environment_variables']
 print(env_variables)
@@ -31,4 +32,6 @@ with open('./manifest-output.yml', 'w') as stream:
         print(exc)
 
 subprocess.run(['cat' , './manifest-output.yml'], check=True)
-subprocess.run(['cat' , './manifest-output2.yml'], check=True)
+
+files = glob.glob(path)
+print(files)
